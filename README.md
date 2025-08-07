@@ -1,18 +1,5 @@
 # Blog Application
-## Django + Next.js Full-Stack Blog
-
-A modern blog application built with Django REST Framework backend and Next.js frontend.
-
-### 🚀 Features
-
-- ✅ **CRUD Operations** - Create, Read, Update, Delete articles
-- ✅ **Image Upload** - Upload and display images for articles
-- ✅ **Admin Panel** - Manage articles with user-friendly interface
-- ✅ **Public Blog** - View published articles
-- ✅ **Article Detail** - Read full articles with "Read More" functionality
-- ✅ **Statistics Dashboard** - View article statistics
-- ✅ **Responsive Design** - Mobile-friendly interface
-- ✅ **TypeScript** - Type-safe development
+## Django + Next.js Blog App
 
 ### 🛠️ Tech Stack
 
@@ -27,32 +14,6 @@ A modern blog application built with Django REST Framework backend and Next.js f
 - Next.js 15.4.5
 - TypeScript
 - Tailwind CSS
-- React Hooks
-
-### 📁 Project Structure
-
-```
-├── backend/                 # Django REST API
-│   ├── blog_project/       # Django project settings
-│   ├── blog/               # Blog app
-│   │   ├── models.py       # Article model
-│   │   ├── views.py        # API views
-│   │   ├── serializers.py  # DRF serializers
-│   │   └── urls.py         # API routes
-│   ├── media/              # Uploaded images
-│   └── requirements.txt    # Python dependencies
-├── frontend/               # Next.js application
-│   ├── src/
-│   │   ├── app/           # App router pages
-│   │   │   ├── admin/     # Admin panel
-│   │   │   └── home/      # Public blog
-│   │   ├── components/    # React components
-│   │   ├── services/      # API services
-│   │   └── types/         # TypeScript interfaces
-│   └── package.json       # Node dependencies
-├── GUIDE.txt              # Detailed development guide
-└── .gitignore            # Git ignore file
-```
 
 ### 🚀 Quick Start
 
@@ -91,30 +52,3 @@ npm run dev
 - `GET/PUT/DELETE /api/articles/{id}/` - Article detail operations
 - `GET /api/articles/stats/` - Article statistics
 
-### 🎨 Screenshots
-
-The application features a modern, responsive design with:
-- Clean admin interface for article management
-- Beautiful public blog layout
-- Image upload and display
-- Statistics dashboard
-- Mobile-responsive design
-
-### 📖 Development Guide
-
-See `GUIDE.txt` for detailed development instructions and architecture explanation.
-
-### 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Submit a pull request
-
-### 📄 License
-
-This project is open source and available under the MIT License.
-
-### 👨‍💻 Author
-
-Created with ❤️ using Django and Next.js
