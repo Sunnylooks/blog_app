@@ -6,7 +6,7 @@
 **Backend:**
 - Django 4.2.7
 - Django REST Framework
-- SQLite (development) / PostgreSQL (production)
+- PostgreSQL (production)
 - Pillow (image processing)
 - CORS headers
 
