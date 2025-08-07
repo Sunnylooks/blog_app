@@ -1,0 +1,41 @@
+### Django Blog API Test Requests
+
+@baseUrl = http://127.0.0.1:8000/api
+
+### Get all articles
+GET {{baseUrl}}/articles/
+
+### Get specific article
+GET {{baseUrl}}/articles/1/
+
+### Create new article
+POST {{baseUrl}}/articles/
+Content-Type: application/json
+
+{
+  "title": "Test Article from REST Client",
+  "content": "This is a test article created using VS Code REST Client extension. It demonstrates how to test POST requests with JSON data.",
+  "author": "REST Client User"
+}
+
+### Update article (replace 1 with actual article ID)
+PUT {{baseUrl}}/articles/1/
+Content-Type: application/json
+
+{
+  "title": "Updated Article Title",
+  "content": "This article has been updated using the PUT method.",
+  "author": "Updated Author"
+}
+
+### Delete article (replace 1 with actual article ID)
+DELETE {{baseUrl}}/articles/1/
+
+### Get article statistics
+GET {{baseUrl}}/articles/stats/
+
+### Test with query parameters (filter by author)
+GET {{baseUrl}}/articles/?author=Django
+
+### Test pagination
+GET {{baseUrl}}/articles/?page=1
