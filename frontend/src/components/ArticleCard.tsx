@@ -103,10 +103,6 @@ export default function ArticleCard({ article, onEdit, onDelete }: ArticleCardPr
               Delete
             </button>
           </div>
-          
-          <div className="text-xs text-gray-400">
-            #{article.id}
-          </div>
         </div>
       </div>
     </div>
