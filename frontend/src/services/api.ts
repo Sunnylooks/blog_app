@@ -18,7 +18,27 @@ const apiRequest = async (url: string, options?: RequestInit) => {
     throw new Error(`HTTP error! status: ${response.status}`);
   }
 
-  return response.json();
+  // Handle empty responses (like DELETE operations)
+  const contentLength = response.headers.get('Content-Length');
+  const contentType = response.headers.get('Content-Type');
+  
+  // If no content or not JSON, return null
+  if (contentLength === '0' || !contentType?.includes('application/json')) {
+    return null;
+  }
+
+  // Try to parse JSON, handle empty responses
+  const text = await response.text();
+  if (!text.trim()) {
+    return null;
+  }
+
+  try {
+    return JSON.parse(text);
+  } catch {
+    console.warn('Failed to parse JSON response:', text);
+    return null;
+  }
 };
 
 export const articleService = {
