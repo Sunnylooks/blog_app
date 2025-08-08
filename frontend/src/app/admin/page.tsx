@@ -91,11 +91,36 @@ export default function AdminPage() {
   const handleDelete = async (id: number) => {
     if (window.confirm('Are you sure you want to delete this article?')) {
       try {
+        // Optimistic update: remove article from local state immediately
+        const articleToDelete = articles.find(article => article.id === id);
+        setArticles(prevArticles => prevArticles.filter(article => article.id !== id));
+        
+        // Update stats optimistically
+        if (stats && articleToDelete) {
+          setStats(prevStats => {
+            if (!prevStats) return prevStats;
+            return {
+              total_articles: prevStats.total_articles - 1,
+              published_articles: articleToDelete.is_published 
+                ? prevStats.published_articles - 1 
+                : prevStats.published_articles,
+              draft_articles: !articleToDelete.is_published 
+                ? prevStats.draft_articles - 1 
+                : prevStats.draft_articles,
+            };
+          });
+        }
+
+        // Perform actual delete
         await articleService.deleteArticle(id);
-        await fetchData(); // Refresh data after delete
+        
+        // Refresh data from server to ensure consistency
+        await fetchData();
       } catch (err) {
         setError('Failed to delete the article.');
         console.error(err);
+        // Revert optimistic update on error
+        await fetchData();
       }
     }
   };
